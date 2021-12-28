@@ -62,6 +62,17 @@ public class UseLogging
 ```
 For code see: https://github.com/studio42gmbh/log42/blob/main/src/test/java/de/s42/log42/examples/UseLogging.java
 
+Leads to the following output (in Netbeans et al. the below at ... is nicely leading to the spot where the logging was put in code):
+
+```
+21:32:23:609 INFO [main] de.s42.log42.examples.UseLogging Welcome
+ at de.s42.log42.examples.UseLogging.main(UseLogging.java:41)
+21:32:23:628 DEBUG [main] de.s42.log42.examples.UseLogging Stopped timer Timer 0.0421 ms.
+ at de.s42.log42.examples.UseLogging.main(UseLogging.java:43)
+21:32:23:643 INFO [main] de.s42.log42.examples.UseLogging Bye
+ at de.s42.log42.examples.UseLogging.main(UseLogging.java:44)
+```
+
 We just added a flavor of start and stopping timers and we removed all the fancy conversions of contents when logging them.
 But you can easily extend that in your own logger by overloading the method 
 
