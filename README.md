@@ -43,7 +43,6 @@ Find the Javadoc here: https://studio42gmbh.github.io/log42/javadoc/
 The usage is mostly compatible to the logging provided by log4j et al.
 
 ```java
-import de.s42.log42.LogLevel;
 import de.s42.log42.LogManager;
 import de.s42.log42.Logger;
 
@@ -56,7 +55,7 @@ public class UseLogging
 	{
 		log.info("Welcome");
 		log.start("Timer");
-		log.stop(LogLevel.INFO, "Timer");
+		log.stopDebug("Timer");
 		log.info("Bye");
 	}
 }
