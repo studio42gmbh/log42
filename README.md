@@ -36,10 +36,11 @@ Benjamin Schiller
 * Use LogManager and Logger
 * Configure settings by adding a log42.properties into the root folder of your project resources
 
+Find the Javadoc here: https://studio42gmbh.github.io/log42/javadoc/
+
 ## log42.properties
 
-### Example Config
-
+Here is an example of the log42.properties you can put into your resources root.
 ```properties
 # Select the factory implementation class (Default is: de.s42.log42.impl.ConsoleLogger)
 loggerFactory = de.s42.log42.impl.FileAndConsoleLogger
