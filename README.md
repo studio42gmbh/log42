@@ -27,7 +27,7 @@ Benjamin Schiller
 ## Future Plans
 
 * Logging to rsyslog (https://de.wikipedia.org/wiki/Rsyslog)
-* Optimize performance
+* Extend demo cases with tutorials like showing extension
 
 ## Usage
 
