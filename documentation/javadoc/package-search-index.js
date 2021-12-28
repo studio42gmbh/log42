@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"de.sft.logft","l":"de.s42.log42"},{"m":"de.sft.logft","l":"de.s42.log42.impl"},{"m":"de.sft.logft","l":"de.s42.log42.util"}]
