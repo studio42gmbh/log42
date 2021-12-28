@@ -40,7 +40,7 @@ Benjamin Schiller
 
 ### Example Config
 
-```java
+```properties
 # Select the factory implementation class (Default is: de.s42.log42.impl.ConsoleLogger)
 loggerFactory = de.s42.log42.impl.FileAndConsoleLogger
 
