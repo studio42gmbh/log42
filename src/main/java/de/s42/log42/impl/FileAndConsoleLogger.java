@@ -202,9 +202,9 @@ public class FileAndConsoleLogger extends ConsoleLogger
 		fileWriter.join();
 	}
 
-	protected String expandPathInfo(String path)
+	protected String expandPathInfo(String path, Date date)
 	{
-		Now now = new Now();
+		Now now = new Now(date);
 
 		path = path.replaceAll("%y", now.getYearAsString());
 		path = path.replaceAll("%m", now.getMonthTwoDigit());
@@ -213,31 +213,31 @@ public class FileAndConsoleLogger extends ConsoleLogger
 		return path;
 	}
 
-	protected Path getPathInfo()
+	protected Path getPathInfo(Date date)
 	{
 		if (file == null) {
 			return null;
 		}
 
-		return Path.of(expandPathInfo(file));
+		return Path.of(expandPathInfo(file, date));
 	}
 
-	protected Path getErrorPathInfo()
+	protected Path getErrorPathInfo(Date date)
 	{
 		if (errorFile == null) {
 			return null;
 		}
 
-		return Path.of(expandPathInfo(errorFile));
+		return Path.of(expandPathInfo(errorFile, date));
 	}
 
-	protected Path getPerformancePathInfo()
+	protected Path getPerformancePathInfo(Date date)
 	{
 		if (performanceFile == null) {
 			return null;
 		}
 
-		return Path.of(expandPathInfo(performanceFile));
+		return Path.of(expandPathInfo(performanceFile, date));
 	}
 
 	protected String getFileDateInfo(Date date)
@@ -275,9 +275,9 @@ public class FileAndConsoleLogger extends ConsoleLogger
 		Path path;
 
 		if (fileErrorLevel.isLower(level)) {
-			path = getPathInfo();
+			path = getPathInfo(date);
 		} else {
-			path = getErrorPathInfo();
+			path = getErrorPathInfo(date);
 		}
 
 		writeLogLineToFile(path, logLine);
@@ -385,7 +385,7 @@ public class FileAndConsoleLogger extends ConsoleLogger
 	 */
 	protected void logPerformanceRecordToFile(String name, String category, long timeStampNs, long durationNs)
 	{
-		Path path = getPerformancePathInfo();
+		Path path = getPerformancePathInfo(new Date());
 
 		if (!Files.exists(path)) {
 
