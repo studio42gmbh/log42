@@ -43,6 +43,36 @@ public interface Logger
 		return stop(level, id, 1);
 	}
 
+	default public double stopTrace(String id)
+	{
+		return stop(LogLevel.TRACE, id);
+	}
+
+	default public double stopDebug(String id)
+	{
+		return stop(LogLevel.DEBUG, id);
+	}
+
+	default public double stopInfo(String id)
+	{
+		return stop(LogLevel.INFO, id);
+	}
+
+	default public double stopWarn(String id)
+	{
+		return stop(LogLevel.WARN, id);
+	}
+
+	default public double stopError(String id)
+	{
+		return stop(LogLevel.ERROR, id);
+	}
+
+	default public double stopFatal(String id)
+	{
+		return stop(LogLevel.FATAL, id);
+	}
+
 	default public void trace(Object... messages)
 	{
 		log(LogLevel.TRACE, messages);

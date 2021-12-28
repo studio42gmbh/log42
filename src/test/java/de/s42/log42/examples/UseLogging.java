@@ -23,7 +23,6 @@
  */
 package de.s42.log42.examples;
 
-import de.s42.log42.LogLevel;
 import de.s42.log42.LogManager;
 import de.s42.log42.Logger;
 
@@ -41,7 +40,7 @@ public class UseLogging
 	{
 		log.info("Welcome");
 		log.start("Timer");
-		log.stop(LogLevel.INFO, "Timer");
+		log.stopDebug("Timer");
 		log.info("Bye");
 	}
 }
