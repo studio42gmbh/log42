@@ -135,6 +135,7 @@ Adds a line under each log which allows to get to the code where the log was don
 
 #### dateFormat
 Format of the date info 
+
 For format details see https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/text/SimpleDateFormat.html
 
 (Default is: HH:mm:ss:SSS)
@@ -148,6 +149,7 @@ Is file logging active
 
 #### writeFileAsynchronous
 Write file in own thread 
+
 If activated make sure you consider the implications when exiting while writing or keeping the process open by writer
 
 (Default is: false)
@@ -155,6 +157,7 @@ If activated make sure you consider the implications when exiting while writing 
 
 #### fileWriterDaemon
 File writer will be spawned as daemon thread or not 
+
 If not you have to call FileAndConsoleLogger.finishFileWriting() or exit hard otherwise the process will no terminate
 
 (Default is: false) 
@@ -180,6 +183,7 @@ String used for separating the info parts in a file
 
 #### fileDateFormat
 Format of the date info 
+
 For format details see https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/text/SimpleDateFormat.html
 
 (Default is: yyyy-MM-dd HH:mm:ss:SSS)
@@ -187,6 +191,7 @@ For format details see https://docs.oracle.com/en/java/javase/14/docs/api/java.b
 
 #### file
 File to log into 
+
 Format: %y = year like 2021; %m = month like 06; %d = day like 27; 
 
 (Required if logToFile == true)
@@ -204,6 +209,7 @@ Lowest level which will be logged into errorFile output
 
 #### errorFile
 File to log errors into 
+
 Format: %y = year like 2021; %m = month like 06; %d = day like 27; 
 
 (Required if fileErrorLevel > NEVER)
@@ -221,7 +227,9 @@ File to log performance data into
 
 #### performanceFile
 File to log performance infos (start, stop) into
-Format: %y = year like 2021; %m = month like 06; %d = day like 27; (Required if logToFile == true)
+
+Format: %y = year like 2021; %m = month like 06; %d = day like 27;
+
 For the resulting JSON file format see https://www.chromium.org/developers/how-tos/trace-event-profiling-tool
 
 (Required if logToPerformanceFile == true)
