@@ -130,3 +130,5 @@ logToPerformanceFile = true
 # File format see https://www.chromium.org/developers/how-tos/trace-event-profiling-tool
 performanceFile = ./target/log/%y/%m/log42-test-%y-%m-%d.performance.json
 ```
+
+For code see: https://github.com/studio42gmbh/log42/blob/main/src/test/resources/log42.properties
