@@ -62,7 +62,7 @@ public class UseLogging
 ```
 For code see: https://github.com/studio42gmbh/log42/blob/main/src/test/java/de/s42/log42/examples/UseLogging.java
 
-Leads to the following output (in Netbeans et al. the below at ... is nicely leading to the spot where the logging was put in code):
+Leads to the following console output (in Netbeans et al. the below at ... is nicely leading to the spot where the logging was put in code):
 
 ```
 21:32:23:609 INFO [main] de.s42.log42.examples.UseLogging Welcome
@@ -71,6 +71,14 @@ Leads to the following output (in Netbeans et al. the below at ... is nicely lea
  at de.s42.log42.examples.UseLogging.main(UseLogging.java:43)
 21:32:23:643 INFO [main] de.s42.log42.examples.UseLogging Bye
  at de.s42.log42.examples.UseLogging.main(UseLogging.java:44)
+```
+
+and the following file output:
+
+```
+2021-12-28 23:57:25:703;INFO;[main];de.s42.log42.examples.UseLogging;Welcome;\n at de.s42.log42.examples.UseLogging.main(UseLogging.java:41);
+2021-12-28 23:57:25:729;DEBUG;[main];de.s42.log42.examples.UseLogging;Stopped timer Timer 0.0681 ms.;\n at de.s42.log42.examples.UseLogging.main(UseLogging.java:43);
+2021-12-28 23:57:25:746;INFO;[main];de.s42.log42.examples.UseLogging;Bye;\n at de.s42.log42.examples.UseLogging.main(UseLogging.java:44);
 ```
 
 We just added a flavor of start and stopping timers and we removed all the fancy conversions of contents when logging them.
