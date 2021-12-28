@@ -38,7 +38,40 @@ Benjamin Schiller
 
 Find the Javadoc here: https://studio42gmbh.github.io/log42/javadoc/
 
-## log42.properties
+### Just use in your class
+
+The usage is mostly compatible to the logging provided by log4j et al.
+
+```java
+import de.s42.log42.LogLevel;
+import de.s42.log42.LogManager;
+import de.s42.log42.Logger;
+
+public class UseLogging
+{
+
+	private final static Logger log = LogManager.getLogger(UseLogging.class.getName());
+
+	public static void main(String[] args)
+	{
+		log.info("Welcome");
+		log.start("Timer");
+		log.stop(LogLevel.INFO, "Timer");
+		log.info("Bye");
+	}
+}
+```
+For code see: https://github.com/studio42gmbh/log42/blob/main/src/test/java/de/s42/log42/examples/UseLogging.java
+
+We just added a flavor of start and stopping timers and we removed all the fancy conversions of contents when logging them.
+But you can easily extend that in your own logger by overloading the method 
+
+```java
+protected String getMessagesInfo(Throwable ex, Object... messages)
+```
+when overloading from de.s42.log42.impl.ConsoleLogger or de.s42.log42.impl.FileAndConsoleLogger
+
+### log42.properties
 
 Here is an example of the log42.properties you can put into your resources root.
 ```properties
