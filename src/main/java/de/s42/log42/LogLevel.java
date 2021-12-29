@@ -25,7 +25,7 @@ package de.s42.log42;
 
 /**
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public enum LogLevel
 {

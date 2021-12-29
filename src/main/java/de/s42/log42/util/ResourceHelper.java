@@ -31,7 +31,7 @@ import java.util.Optional;
 
 /**
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public final class ResourceHelper
 {

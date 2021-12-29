@@ -25,22 +25,35 @@ package de.s42.log42.examples;
 
 import de.s42.log42.LogManager;
 import de.s42.log42.Logger;
+import de.s42.log42.Version;
 
 /**
- * This simple example shows the usage with using the log42.properties in the root folder of test
+ * This simple example shows the usage with using the log42.properties in the root folder of test For further details
+ * see https://github.com/studio42gmbh/log42
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public class UseLogging
 {
 
+	// create a class based logger - as the name is arbitrary you can also share loggers across systems if preferred
 	private final static Logger log = LogManager.getLogger(UseLogging.class.getName());
 
-	public static void main(String[] args)
+	public static void main(String... args)
 	{
-		log.info("Welcome");
-		log.start("Timer");
-		log.stopDebug("Timer");
+		// simple info logging - the messages will be joined with a " " in between
+		log.info("Welcome", "to", "Logging");
+
+		// simple debug logging - available is: trace, debug, info, warn, error, fatal
+		log.debug("Version of Log42", Version.getVersion());
+
+		// starts a timer with id MyTimer in the default implementation the timers are threadbound
+		log.start("MyTimer");
+
+		// stops the timer with id MyTimer and prints the duration as DEBUG log
+		log.stopDebug("MyTimer");
+
+		// simple info logging
 		log.info("Bye");
 	}
 }

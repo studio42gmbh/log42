@@ -42,7 +42,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public class FileAndConsoleLogger extends ConsoleLogger
 {

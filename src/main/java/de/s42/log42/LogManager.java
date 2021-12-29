@@ -31,7 +31,7 @@ import java.util.Properties;
 
 /**
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public final class LogManager
 {

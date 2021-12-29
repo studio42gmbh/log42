@@ -26,7 +26,7 @@ package de.s42.log42.util;
 /**
  * See https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public final class AnsiHelper
 {

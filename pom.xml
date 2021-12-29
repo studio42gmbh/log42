@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<name>Log 42</name>
-	<description>The safe and fast logging</description>
+	<description>Simple, secure and fast logging for Java - for details see https://github.com/studio42gmbh/log42</description>
 	<groupId>de.s42</groupId>
 	<artifactId>log42</artifactId>
 	<version>0.1.0</version>
@@ -106,7 +106,6 @@
 						</manifest>
 						<manifestEntries>
 							<Automatic-Module-Name>de.sft.logft</Automatic-Module-Name>
-							<!--SplashScreen-Image>splash.jpg</SplashScreen-Image//-->
 						</manifestEntries>
 					</archive>
 				</configuration>

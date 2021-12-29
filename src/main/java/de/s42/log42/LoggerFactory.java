@@ -27,7 +27,7 @@ import java.util.Properties;
 
 /**
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public interface LoggerFactory
 {

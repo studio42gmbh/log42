@@ -28,7 +28,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public final class Version
 {

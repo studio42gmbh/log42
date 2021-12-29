@@ -28,7 +28,7 @@ import java.util.Date;
 
 /**
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public class Now
 {

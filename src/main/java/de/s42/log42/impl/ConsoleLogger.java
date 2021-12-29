@@ -39,7 +39,7 @@ import java.util.UUID;
 
 /**
  *
- * @author Benjamin.Schiller
+ * @author Benjamin Schiller
  */
 public class ConsoleLogger implements Logger, LoggerFactory
 {
