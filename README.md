@@ -8,6 +8,8 @@
 
 Log 42 is a simple, secure and fast logging for Java. Everyone who does not need JNDI lookups in his logging might enjoy that ;)
 
+If you like Log 42 or have constructive critique dont hesitate to write us directly on info@s42m.de. We are always happy for qualified feedback!
+
 "Look up to the stars not down on your feet. Be curious!" _Stephen Hawking 1942 - 2018_
 
 Have a great day!
