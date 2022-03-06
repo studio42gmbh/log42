@@ -53,7 +53,7 @@ public final class ResourceHelper
 	{
 		assert resourceName != null;
 
-		return (ResourceHelper.class.getClassLoader().getResource(resourceName) != null);
+		return (Thread.currentThread().getContextClassLoader().getResource(resourceName) != null);
 	}
 
 	public static Optional<String> getResourceAsString(String resourceName) throws IOException
@@ -65,7 +65,7 @@ public final class ResourceHelper
 		}
 
 		ByteArrayOutputStream result;
-		try (InputStream inputStream = ClassLoader.getSystemClassLoader().getResourceAsStream(resourceName)) {
+		try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName)) {
 			result = new ByteArrayOutputStream();
 			byte[] buffer = new byte[1024];
 			int length;

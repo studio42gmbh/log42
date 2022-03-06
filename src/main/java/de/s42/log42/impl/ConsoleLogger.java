@@ -262,12 +262,15 @@ public class ConsoleLogger implements Logger, LoggerFactory
 		int i = 3;
 		boolean inLogger = false;
 		for (; i < traces.length; ++i) {
-			if (traces[i].getClassName().startsWith("de.s42.log42.Logger")) {
+			if (traces[i].getClassName().startsWith("de.s42.log42.Logger")
+				|| traces[i].getMethodName().equals("log")) {
 				inLogger = true;
-			}
-			else if (inLogger) {
+			} else if (inLogger) {
 				break;
 			}
+		}
+		if (i == traces.length) {
+			i = 3;
 		}
 		StringBuilder line = new StringBuilder();
 		appendStackTraceElement(line, traces[i]);
@@ -283,6 +286,9 @@ public class ConsoleLogger implements Logger, LoggerFactory
 				line.append(" ");
 			}
 			first = false;
+			if (message == null) {
+				message = "null";
+			}
 			line.append(message.toString());
 		}
 
