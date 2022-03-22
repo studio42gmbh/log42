@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"de.sft.logft","l":"de.s42.log42"},{"m":"de.sft.logft","l":"de.s42.log42.impl"},{"m":"de.sft.logft","l":"de.s42.log42.util"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"de.sft.log","l":"de.s42.log"},{"m":"de.sft.log","l":"de.s42.log.impl"}]

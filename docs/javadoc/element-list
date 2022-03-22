@@ -1,4 +1,3 @@
-module:de.sft.logft
-de.s42.log42
-de.s42.log42.impl
-de.s42.log42.util
+module:de.sft.log
+de.s42.log
+de.s42.log.impl

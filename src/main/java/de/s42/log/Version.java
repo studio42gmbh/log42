@@ -21,18 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.s42.log42;
+package de.s42.log;
 
-import java.util.Properties;
+import de.s42.base.resources.ResourceHelper;
+import java.io.IOException;
 
 /**
  *
  * @author Benjamin Schiller
  */
-public interface LoggerFactory
+public final class Version
 {
 
-	public void init(Properties properties);
+	private Version()
+	{
+		// never instantiated
+	}
 
-	public Logger createLogger(String name);
+	public static String getVersion()
+	{
+		try {
+			return ResourceHelper.getResourceAsString(Version.class, "log42.version").get();
+		} catch (IOException ex) {
+			throw new RuntimeException(ex.getMessage(), ex);
+		}
+	}
 }

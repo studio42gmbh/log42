@@ -21,9 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.s42.log42;
+package de.s42.log;
 
-import de.s42.log42.impl.ConsoleLogger;
+import de.s42.log.impl.ConsoleLogger;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;

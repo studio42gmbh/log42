@@ -14,6 +14,11 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>de.s42</groupId>
+			<artifactId>base42</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>7.4.0</version>
@@ -24,7 +29,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
@@ -37,7 +42,7 @@
 									<arg value="--abbrev=11"/>
 									<arg value="HEAD"/>
 								</exec>
-								<property name="versionFile" value="${project.basedir}/src/main/resources/de/s42/log42/${project.artifactId}.version"/>	
+								<property name="versionFile" value="${project.basedir}/src/main/resources/de/s42/log/${project.artifactId}.version"/>	
 								<property name="fullVersion" value="${project.version} #${git.revision} ${maven.build.timestamp}"/>								
 								<echo file="${versionFile}">${fullVersion}</echo>													
 								<echo>New version is ${fullVersion}</echo>
@@ -57,9 +62,7 @@
 				<configuration>
 					<!-- https://stackoverflow.com/questions/64688896/how-to-make-testng-print-detail-message-about-the-failure -->
 					<trimStackTrace>false</trimStackTrace> 
-					<argLine>--add-modules de.sft.logft -Dfile.encoding=UTF-8</argLine>
-					<parallel>methods</parallel>
-					<threadCount>4</threadCount>
+					<argLine>--add-modules de.sft.log -Dfile.encoding=UTF-8</argLine>
 					<workingDirectory>${project.basedir}/data/</workingDirectory>
 				</configuration>
 			</plugin>		
@@ -105,7 +108,7 @@
 							<classpathPrefix>libs/</classpathPrefix>						
 						</manifest>
 						<manifestEntries>
-							<Automatic-Module-Name>de.sft.logft</Automatic-Module-Name>
+							<Automatic-Module-Name>de.sft.log</Automatic-Module-Name>
 						</manifestEntries>
 					</archive>
 				</configuration>

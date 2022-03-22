@@ -21,9 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module de.sft.logft
+module de.sft.log
 {
-	exports de.s42.log42;
-	exports de.s42.log42.impl;
-	exports de.s42.log42.util;
+	requires de.sft.base;
+
+	exports de.s42.log;
+	exports de.s42.log.impl;
 }

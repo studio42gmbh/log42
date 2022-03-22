@@ -21,29 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.s42.log42;
+package de.s42.log.examples;
 
-import de.s42.log42.util.ResourceHelper;
-import java.io.IOException;
+import de.s42.log.LogManager;
+import de.s42.log.Logger;
+import de.s42.log.Version;
 
 /**
+ * This simple example shows the usage with using the log42.properties in the root folder of test For further details
+ * see https://github.com/studio42gmbh/log42
  *
  * @author Benjamin Schiller
  */
-public final class Version
+public class UseLogging
 {
 
-	private Version()
-	{
-		// never instantiated
-	}
+	// create a class based logger - as the name is arbitrary you can also share loggers across systems if preferred
+	private final static Logger log = LogManager.getLogger(UseLogging.class.getName());
 
-	public static String getVersion()
+	public static void main(String... args)
 	{
-		try {
-			return ResourceHelper.getResourceAsString(Version.class, "log42.version").get();
-		} catch (IOException ex) {
-			throw new RuntimeException(ex.getMessage(), ex);
-		}
+		// simple info logging - the messages will be joined with a " " in between
+		log.info("Welcome", "to", "Logging");
+
+		// simple debug logging - available is: trace, debug, info, warn, error, fatal
+		log.debug("Version of Log42", Version.getVersion());
+
+		// starts a timer with id MyTimer in the default implementation the timers are threadbound
+		log.start("MyTimer");
+
+		// stops the timer with id MyTimer and prints the duration as DEBUG log
+		log.stopDebug("MyTimer");
+
+		// simple info logging
+		log.info("Bye");
 	}
 }

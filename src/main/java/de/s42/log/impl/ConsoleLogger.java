@@ -21,13 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.s42.log42.impl;
+package de.s42.log.impl;
 
-import de.s42.log42.LogLevel;
-import de.s42.log42.Logger;
-import de.s42.log42.LoggerFactory;
-import de.s42.log42.util.AnsiHelper;
-import de.s42.log42.util.AnsiHelper.TerminalColor;
+import de.s42.base.console.AnsiHelper;
+import de.s42.base.console.AnsiHelper.TerminalColor;
+import de.s42.log.LogLevel;
+import de.s42.log.Logger;
+import de.s42.log.LoggerFactory;
 import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

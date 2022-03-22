@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.s42.log42.impl;
+package de.s42.log.impl;
 
-import de.s42.log42.LogLevel;
-import de.s42.log42.Logger;
-import static de.s42.log42.impl.ConsoleLogger.timersPerThread;
-import de.s42.log42.util.Now;
+import de.s42.base.date.Now;
+import de.s42.log.LogLevel;
+import de.s42.log.Logger;
+import static de.s42.log.impl.ConsoleLogger.timersPerThread;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;

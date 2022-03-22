@@ -30,6 +30,7 @@ Benjamin Schiller
 
 * Logging to rsyslog (https://de.wikipedia.org/wiki/Rsyslog)
 * Extend demo cases with tutorials like showing extension
+* Make log42 available in public maven repos
 
 ## Usage
 
@@ -39,6 +40,8 @@ Benjamin Schiller
 * Configure settings by adding a log42.properties into the root folder of your project resources
 
 Find the Javadoc here: https://studio42gmbh.github.io/log42/javadoc/
+
+Important: You also need to get a local copy of the Base 42 library - see https://github.com/studio42gmbh/base42
 
 ### Just use in your class
 

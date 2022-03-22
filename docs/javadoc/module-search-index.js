@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"de.sft.logft"}]
+moduleSearchIndex = [{"l":"de.sft.log"}]
