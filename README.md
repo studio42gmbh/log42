@@ -48,8 +48,8 @@ Important: You also need to get a local copy of the Base 42 library - see https:
 The usage is mostly compatible to the logging provided by log4j et al.
 
 ```java
-import de.s42.log42.LogManager;
-import de.s42.log42.Logger;
+import de.s42.log.LogManager;
+import de.s42.log.Logger;
 import de.s42.log42.Version;
 
 public class UseLogging
