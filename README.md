@@ -2,7 +2,8 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/studio42gmbh/log42)
 ![GitHub last commit](https://img.shields.io/github/last-commit/studio42gmbh/log42)
 ![GitHub issues](https://img.shields.io/github/issues/studio42gmbh/log42)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/studio42gmbh/log42/Java%20CI%20with%20Maven)
+
+<!-- ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/studio42gmbh/log42/Java%20CI%20with%20Maven) -->
 
 # Log 42
 
