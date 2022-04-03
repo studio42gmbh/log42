@@ -259,18 +259,20 @@ public class ConsoleLogger implements Logger, LoggerFactory
 	{
 		// @todo is this way of getting the call point stable enough?
 		StackTraceElement[] traces = Thread.currentThread().getStackTrace();
-		int i = 3;
+		int i = 0;
 		boolean inLogger = false;
 		for (; i < traces.length; ++i) {
-			if (traces[i].getClassName().startsWith("de.s42.log42.Logger")
+			if (traces[i].getClassName().startsWith("de.s42.log.Logger")
+				|| traces[i].getClassName().startsWith("de.s42.log.impl")
 				|| traces[i].getMethodName().equals("log")) {
+
 				inLogger = true;
 			} else if (inLogger) {
 				break;
 			}
 		}
 		if (i == traces.length) {
-			i = 3;
+			i = traces.length - 1;
 		}
 		StringBuilder line = new StringBuilder();
 		appendStackTraceElement(line, traces[i]);
