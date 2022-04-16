@@ -3,19 +3,18 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/studio42gmbh/log42)
 ![GitHub issues](https://img.shields.io/github/issues/studio42gmbh/log42)
 
-<!-- ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/studio42gmbh/log42/Java%20CI%20with%20Maven) -->
-
 # Log 42
 
 Log 42 is a simple, secure and fast logging for Java. Everyone who does not need JNDI lookups in his logging might enjoy that ;)
 
 If you like Log 42 or have constructive critique dont hesitate to write us directly on info@s42m.de. We are always happy for qualified feedback!
 
-"Look up to the stars not down on your feet. Be curious!" _Stephen Hawking 1942 - 2018_
-
 Have a great day!
 
 Benjamin Schiller
+
+> "Look up to the stars not down on your feet. Be curious!" _Stephen Hawking 1942 - 2018_
+
 
 ## Features
 
@@ -27,11 +26,13 @@ Benjamin Schiller
 * Support ANSI coloring
 * Easily extend and change the logging
 
+
 ## Future Plans
 
 * Logging to rsyslog (https://de.wikipedia.org/wiki/Rsyslog)
 * Extend demo cases with tutorials like showing extension
 * Make log42 available in public maven repos
+
 
 ## Usage
 
@@ -43,6 +44,7 @@ Benjamin Schiller
 Find the Javadoc here: https://studio42gmbh.github.io/log42/javadoc/
 
 Important: You also need to get a local copy of the Base 42 library - see https://github.com/studio42gmbh/base42
+
 
 ### Just use in your class
 
@@ -111,6 +113,7 @@ protected String getMessagesInfo(Throwable ex, Object... messages)
 ```
 when overloading from de.s42.log42.impl.ConsoleLogger or de.s42.log42.impl.FileAndConsoleLogger
 
+
 ### log42.properties
 
 Here is an example of the log42.properties you can put into your resources root.
@@ -137,7 +140,9 @@ performanceFile = ./target/log/%y/%m/log42-test-%y-%m-%d.performance.json
 
 For code see: https://github.com/studio42gmbh/log42/blob/main/src/test/resources/log42.properties
 
+
 ### Explanation of properties of de.s42.log42.impl.FileAndConsoleLogger
+
 
 #### enableAnsi
 Elements will use ANSI for coloring 
