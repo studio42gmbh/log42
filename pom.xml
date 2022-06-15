@@ -17,12 +17,8 @@
 			<groupId>de.s42</groupId>
 			<artifactId>base42</artifactId>
 			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.4.0</version>
-			<scope>test</scope>
+			<scope>compile</scope>
+			<type>jar</type>			
 		</dependency>
 	</dependencies>			
 	<build>
@@ -125,6 +121,12 @@
 					<show>private</show>
 				</configuration>				
 			</plugin>			
+			<plugin>
+				<!-- https://maven.apache.org/plugins/maven-install-plugin/ -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>3.0.0-M1</version>
+			</plugin>
 		</plugins>
 	</build>
 </project>
