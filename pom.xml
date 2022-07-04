@@ -28,6 +28,18 @@
 			<url>https://maven.pkg.github.com/studio42gmbh/log42</url>
 		</repository>
 	</distributionManagement>
+	<profiles>
+		<profile>
+			<id>github</id>
+			<repositories>
+      	<repository>
+					<id>github</id>
+					<name>GitHub Packages</name>
+					<url>https://maven.pkg.github.com/studio42gmbh/base42</url>
+				</repository>
+      </repositories>
+		</profile>
+  </profiles>
 	<build>
 		<plugins>
 			<plugin>
