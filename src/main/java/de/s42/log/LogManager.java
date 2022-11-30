@@ -24,9 +24,12 @@
 package de.s42.log;
 
 import de.s42.log.impl.ConsoleLogger;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Properties;
 
 /**
@@ -52,10 +55,19 @@ public final class LogManager
 
 	private static void init()
 	{
-		InputStream configStream = LogManager.class.getClassLoader().getResourceAsStream("log42.properties");
+		InputStream configStream;
 
-		if (configStream != null) {
-			try {
+		try {
+
+			// Load properties from current working directory root first
+			if (Files.isRegularFile(Path.of("./log42.properties"))) {
+				configStream = new FileInputStream("./log42.properties");
+			} // If not existent - load from resources
+			else {
+				configStream = LogManager.class.getClassLoader().getResourceAsStream("log42.properties");
+			}
+
+			if (configStream != null) {
 				Properties config = new Properties();
 				config.load(configStream);
 
@@ -67,9 +79,11 @@ public final class LogManager
 					loggerFactory = (LoggerFactory) Class.forName(loggerFactoryClassName).getConstructor().newInstance();
 					loggerFactory.init(config);
 				}
-			} catch (IOException | ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException ex) {
-				throw new RuntimeException("Error reading logging config - " + ex.getMessage(), ex);
+
+				configStream.close();
 			}
+		} catch (IOException | ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException ex) {
+			throw new RuntimeException("Error reading logging config - " + ex.getMessage(), ex);
 		}
 	}
 
