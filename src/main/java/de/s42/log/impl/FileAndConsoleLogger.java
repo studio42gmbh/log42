@@ -69,6 +69,8 @@ public class FileAndConsoleLogger extends ConsoleLogger
 	public final static String CONFIG_LOG_TO_PERFORMANCE_FILE = "logToPerformanceFile";
 	public final static String CONFIG_LOG_TO_PERFORMANCE_FILE_DEFAULT = "false";
 
+	public final static String CONFIG_FILE_LOG_LEVEL = "fileLevel";
+	
 	public final static String CONFIG_FILE_ERROR_LEVEL = "fileErrorLevel";
 	public final static String CONFIG_FILE_ERROR_LEVEL_DEFAULT = "NEVER";
 
@@ -105,6 +107,7 @@ public class FileAndConsoleLogger extends ConsoleLogger
 	protected static boolean logToPerformanceFile = false;
 
 	protected static int fileWriterQueue = 1000;
+	protected static LogLevel fileLogLevel;
 	protected static LogLevel fileErrorLevel = LogLevel.NEVER;
 	protected static DateFormat fileDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 
@@ -162,6 +165,10 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 		fileErrorLevel = LogLevel.valueOf(
 			config.getProperty(CONFIG_FILE_ERROR_LEVEL, CONFIG_FILE_ERROR_LEVEL_DEFAULT));
+		
+		// Default file log level to log level
+		fileLogLevel = LogLevel.valueOf(
+			config.getProperty(CONFIG_FILE_LOG_LEVEL, logLevel.toString()));
 
 		fileDateFormat = new SimpleDateFormat(
 			config.getProperty(CONFIG_FILE_DATE_FORMAT, CONFIG_FILE_DATE_FORMAT_DEFAULT));
@@ -259,6 +266,11 @@ public class FileAndConsoleLogger extends ConsoleLogger
 		assert date != null;
 
 		if (!logToFile) {
+			return;
+		}
+		
+		// dont log lower levels than logLevel
+		if (fileLogLevel.isLower(level)) {
 			return;
 		}
 
