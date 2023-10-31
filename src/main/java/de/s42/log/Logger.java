@@ -38,6 +38,8 @@ public interface Logger
 
 	public void logThrowable(LogLevel level, Throwable ex, Object... messages);
 
+	public void ifLevel(LogLevel level, Runnable doOnLevel);
+
 	default public double stop(LogLevel level, String id)
 	{
 		return stop(level, id, 1);
@@ -131,5 +133,35 @@ public interface Logger
 	default public void fatal(Throwable ex, Object... messages)
 	{
 		logThrowable(LogLevel.FATAL, ex, messages);
+	}
+
+	default public void ifTrace(Runnable doOnTrace)
+	{
+		ifLevel(LogLevel.TRACE, doOnTrace);
+	}
+
+	default public void ifDebug(Runnable doOnDebug)
+	{
+		ifLevel(LogLevel.DEBUG, doOnDebug);
+	}
+
+	default public void ifInfo(Runnable doOnInfo)
+	{
+		ifLevel(LogLevel.INFO, doOnInfo);
+	}
+
+	default public void ifWarn(Runnable doOnWarn)
+	{
+		ifLevel(LogLevel.WARN, doOnWarn);
+	}
+
+	default public void ifError(Runnable doOnError)
+	{
+		ifLevel(LogLevel.ERROR, doOnError);
+	}
+
+	default public void ifFatal(Runnable doOnFatal)
+	{
+		ifLevel(LogLevel.FATAL, doOnFatal);
 	}
 }

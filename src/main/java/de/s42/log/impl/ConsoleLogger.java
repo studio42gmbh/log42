@@ -112,6 +112,19 @@ public class ConsoleLogger implements Logger, LoggerFactory
 	}
 
 	@Override
+	public void ifLevel(LogLevel level, Runnable doOnLevel)
+	{
+		assert level != null;
+		assert doOnLevel != null;
+
+		if (logLevel.isLower(level)) {
+			return;
+		}
+
+		doOnLevel.run();
+	}
+
+	@Override
 	public void start(String id)
 	{
 		Map<String, Long> timerMap = timersPerThread.get();
