@@ -21,6 +21,13 @@
 			<type>jar</type>			
 		</dependency>
 	</dependencies>	
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub studio42 GmbH Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/studio42gmbh/log42</url>
+		</repository>
+	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
