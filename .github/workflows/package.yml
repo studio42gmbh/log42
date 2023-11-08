@@ -14,58 +14,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-	  - uses: whelk-io/maven-settings-xml-action@v20
-	    with:
-		  repositories: >
-		  [
-            {
-                "id": "central",
-				"name": "Maven Central",
-				"url": "https://repo1.maven.org/maven2",
-				"releases": {
-				  "enabled": "true"
-				},
-			   "snapshots": {
-			   "enabled": "false"
-			  }
-			}          
-			{
-			  "id": "github",
-			  "name": "Studio 42",
-			  "url": "https://maven.pkg.github.com/studio42gmbh/*",
-			  "releases": {
-				"enabled": "true",
-				"updatePolicy": "always",
-				"checksumPolicy": "fail"
-			  },
-			  "snapshots": {
-				"enabled": "true",
-				"updatePolicy": "always",
-				"checksumPolicy": "fail"
-			  }
-			}
-		  ]
-		  servers: >
-		  [
-		    {
-  			  "id": "github",
-			  "username": "${env.USER}",
-			  "password": "${{ secrets.GITHUB_TOKEN }}",
-			  "configuration": {
-			  "httpConfiguration": {
-				"all": {
-				    "usePreemptive": "true"
-				  }
-			    }
-			  }
-		    }
-		  ] 
-          active_profiles: >
-          [
-           "github"
-          ]
-          output_file: .m2/settings.xml          
-        - name: Publish package
+      - uses: whelk-io/maven-settings-xml-action@v21
+        with:
+          repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/studio42gmbh/*" }]'
+          servers: '[{ "id": "github", "username": "${env.USER}", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
+      - name: Publish package
         run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
