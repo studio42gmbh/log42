@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<name>Log 42</name>
-	<description>Simple, secure and fast logging for Java - for details see https://github.com/studio42gmbh/log42</description>
+	<description>Simple, secure and fast logging for Java. See https://github.com/studio42gmbh/log42</description>
 	<groupId>de.s42</groupId>
 	<artifactId>log42</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-DEV</version>
 	<packaging>jar</packaging>
 	<modelVersion>4.0.0</modelVersion>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.release>17</maven.compiler.release>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>de.s42</groupId>
 			<artifactId>base42</artifactId>
-			<version>1.0.3</version>
+			<version>1.0.4-DEV</version>
 			<scope>compile</scope>
-			<type>jar</type>			
 		</dependency>
 	</dependencies>	
 	<distributionManagement>
@@ -61,7 +59,7 @@
 				<!-- https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.2.1</version>
+				<version>3.2.2</version>
 				<configuration>
 					<!-- https://stackoverflow.com/questions/64688896/how-to-make-testng-print-detail-message-about-the-failure -->
 					<trimStackTrace>false</trimStackTrace> 
@@ -120,7 +118,7 @@
 				<!-- https://maven.apache.org/plugins/maven-javadoc-plugin/aggregate-mojo.html -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.6.0</version>
+				<version>3.6.2</version>
 				<configuration>
 					<outputDirectory>${project.basedir}/docs</outputDirectory>
 					<reportOutputDirectory>${project.basedir}/docs</reportOutputDirectory>
