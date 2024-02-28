@@ -4,7 +4,7 @@
 	<description>Simple, secure and fast logging for Java. See https://github.com/studio42gmbh/log42</description>
 	<groupId>de.s42</groupId>
 	<artifactId>log42</artifactId>
-	<version>1.0.1-DEV</version>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 	<modelVersion>4.0.0</modelVersion>
 	<properties>
@@ -15,7 +15,7 @@
 		<dependency>
 			<groupId>de.s42</groupId>
 			<artifactId>base42</artifactId>
-			<version>1.0.4-DEV</version>
+			<version>1.0.4</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>	
@@ -61,7 +61,7 @@
 				<!-- https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.2.2</version>
+				<version>3.2.5</version>
 				<configuration>
 					<!-- https://stackoverflow.com/questions/64688896/how-to-make-testng-print-detail-message-about-the-failure -->
 					<trimStackTrace>false</trimStackTrace> 
@@ -73,7 +73,7 @@
 				<!-- https://maven.apache.org/plugins/maven-compiler-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
+				<version>3.12.1</version>
 				<configuration>
 					<showDeprecation>true</showDeprecation>
 					<debug>true</debug>
@@ -120,7 +120,7 @@
 				<!-- https://maven.apache.org/plugins/maven-javadoc-plugin/aggregate-mojo.html -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.6.2</version>
+				<version>3.6.3</version>
 				<configuration>
 					<outputDirectory>${project.basedir}/docs</outputDirectory>
 					<reportOutputDirectory>${project.basedir}/docs</reportOutputDirectory>

@@ -1,3 +1,4 @@
+// <editor-fold desc="The MIT License" defaultstate="collapsed">
 /*
  * The MIT License
  * 
@@ -21,6 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+//</editor-fold>
 package de.s42.log.impl;
 
 import de.s42.base.date.Now;
@@ -70,7 +72,7 @@ public class FileAndConsoleLogger extends ConsoleLogger
 	public final static String CONFIG_LOG_TO_PERFORMANCE_FILE_DEFAULT = "false";
 
 	public final static String CONFIG_FILE_LOG_LEVEL = "fileLevel";
-	
+
 	public final static String CONFIG_FILE_ERROR_LEVEL = "fileErrorLevel";
 	public final static String CONFIG_FILE_ERROR_LEVEL_DEFAULT = "NEVER";
 
@@ -138,6 +140,8 @@ public class FileAndConsoleLogger extends ConsoleLogger
 	@Override
 	public void init(Properties config)
 	{
+		assert config != null;
+
 		super.init(config);
 
 		removeAnsiInFiles = Boolean.parseBoolean(
@@ -165,7 +169,7 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 		fileErrorLevel = LogLevel.valueOf(
 			config.getProperty(CONFIG_FILE_ERROR_LEVEL, CONFIG_FILE_ERROR_LEVEL_DEFAULT));
-		
+
 		// Default file log level to log level
 		fileLogLevel = LogLevel.valueOf(
 			config.getProperty(CONFIG_FILE_LOG_LEVEL, logLevel.toString()));
@@ -211,6 +215,9 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 	protected String expandPathInfo(String path, Date date)
 	{
+		assert path != null;
+		assert date != null;
+
 		Now now = new Now(date);
 
 		path = path.replaceAll("%y", now.getYearAsString());
@@ -222,6 +229,8 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 	protected Path getPathInfo(Date date)
 	{
+		assert date != null;
+
 		if (file == null) {
 			return null;
 		}
@@ -231,6 +240,8 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 	protected Path getErrorPathInfo(Date date)
 	{
+		assert date != null;
+
 		if (errorFile == null) {
 			return null;
 		}
@@ -240,6 +251,8 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 	protected Path getPerformancePathInfo(Date date)
 	{
+		assert date != null;
+
 		if (performanceFile == null) {
 			return null;
 		}
@@ -249,12 +262,17 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 	protected String getFileDateInfo(Date date)
 	{
+		assert date != null;
+
 		return fileDateFormat.format(date);
 	}
 
 	@Override
 	protected void printLogLine(LogLevel level, Date date, Throwable ex, Object... messages)
 	{
+		assert level != null;
+		assert date != null;
+
 		super.printLogLine(level, date, ex, messages);
 
 		printLogLineToFile(level, date, ex, messages);
@@ -268,7 +286,7 @@ public class FileAndConsoleLogger extends ConsoleLogger
 		if (!logToFile) {
 			return;
 		}
-		
+
 		// dont log lower levels than logLevel
 		if (fileLogLevel.isLower(level)) {
 			return;
@@ -297,6 +315,9 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 	protected void writeLogLineToFile(Path file, String logLine)
 	{
+		assert file != null;
+		assert logLine != null;
+
 		// @todo https://www.netjstech.com/2020/07/writing-file-asynchronously-java-program.html
 		if (writeFileAsynchronous) {
 			fileWriterJobs.add(new FileWriteJob(file, logLine));
@@ -307,6 +328,9 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 	protected void writeLogLineToFileImmediately(Path file, String logLine)
 	{
+		assert file != null;
+		assert logLine != null;
+
 		try {
 			if (!Files.exists(file)) {
 				Files.createDirectories(file.getParent());
@@ -321,6 +345,9 @@ public class FileAndConsoleLogger extends ConsoleLogger
 
 	protected String fileLogLine(Date date, LogLevel level, Throwable ex, Object... messages)
 	{
+		assert date != null;
+		assert level != null;
+
 		StringBuilder logLine = new StringBuilder();
 
 		logLine.append(getFileDateInfo(date)).append(fileInfoSeparator);
@@ -347,6 +374,9 @@ public class FileAndConsoleLogger extends ConsoleLogger
 	@Override
 	public double stop(LogLevel level, String id, int count)
 	{
+		assert level != null;
+		assert id != null;
+
 		Map<String, Long> timerMap = timersPerThread.get();
 
 		// no timermap found with given id
@@ -397,6 +427,9 @@ public class FileAndConsoleLogger extends ConsoleLogger
 	 */
 	protected void logPerformanceRecordToFile(String name, String category, long timeStampNs, long durationNs)
 	{
+		assert name != null;
+		assert category != null;
+
 		Path path = getPerformancePathInfo(new Date());
 
 		if (!Files.exists(path)) {

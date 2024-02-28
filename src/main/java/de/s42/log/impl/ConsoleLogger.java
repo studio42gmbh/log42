@@ -1,3 +1,4 @@
+// <editor-fold desc="The MIT License" defaultstate="collapsed">
 /*
  * The MIT License
  * 
@@ -21,6 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+//</editor-fold>
 package de.s42.log.impl;
 
 import de.s42.base.console.AnsiHelper;
@@ -127,6 +129,8 @@ public class ConsoleLogger implements Logger, LoggerFactory
 	@Override
 	public void start(String id)
 	{
+		assert id != null;
+
 		Map<String, Long> timerMap = timersPerThread.get();
 
 		if (timerMap == null) {
@@ -140,6 +144,9 @@ public class ConsoleLogger implements Logger, LoggerFactory
 	@Override
 	public double stop(LogLevel level, String id, int count)
 	{
+		assert level != null;
+		assert id != null;
+
 		Map<String, Long> timerMap = timersPerThread.get();
 
 		// no timermap found with given id
@@ -247,19 +254,29 @@ public class ConsoleLogger implements Logger, LoggerFactory
 
 	protected String getLevelInfo(LogLevel level)
 	{
+		assert level != null;
+
 		if (enableAnsi) {
 			TerminalColor levelInfoColor = TerminalColor.Black;
 
-			if (LogLevel.FATAL == level) {
-				levelInfoColor = TerminalColor.BrightRed;
-			} else if (LogLevel.ERROR == level) {
-				levelInfoColor = TerminalColor.Red;
-			} else if (LogLevel.WARN == level) {
-				levelInfoColor = TerminalColor.Yellow;
-			} else if (LogLevel.DEBUG == level) {
-				levelInfoColor = TerminalColor.Cyan;
-			} else if (LogLevel.TRACE == level) {
-				levelInfoColor = TerminalColor.White;
+			switch (level) {
+				case FATAL:
+					levelInfoColor = TerminalColor.BrightRed;
+					break;
+				case ERROR:
+					levelInfoColor = TerminalColor.Red;
+					break;
+				case WARN:
+					levelInfoColor = TerminalColor.Yellow;
+					break;
+				case DEBUG:
+					levelInfoColor = TerminalColor.Cyan;
+					break;
+				case TRACE:
+					levelInfoColor = TerminalColor.White;
+					break;
+				default:
+					break;
 			}
 
 			return AnsiHelper.coloredString(level.toString(), levelInfoColor);
@@ -341,6 +358,9 @@ public class ConsoleLogger implements Logger, LoggerFactory
 
 	protected String logLine(Date date, LogLevel level, Throwable ex, Object... messages)
 	{
+		assert date != null;
+		assert level != null;
+
 		StringBuilder logLine = new StringBuilder();
 
 		logLine.append(getDateInfo(date)).append(" ");
