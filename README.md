@@ -36,14 +36,26 @@ Benjamin Schiller
 
 ## Usage
 
-* Download project
-* Add as maven dependency to your project locally
+
+Include the [Maven Package](https://github.com/studio42gmbh/log42/packages/1983722) in your pom.xml
+```xml
+<dependency>
+  <groupId>de.s42</groupId>
+  <artifactId>log42</artifactId>
+  <version>1.0.2</version>
+</dependency> 
+```
+
+How to get maven packages from github: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
+
+* Get package for maven (or Download project)
+* Add as maven dependency to your project locally (see above)
 * Use LogManager and Logger
 * Configure settings by adding a log42.properties into the root folder of your project resources
 
 Find the Javadoc here: https://studio42gmbh.github.io/log42/javadoc/
 
-Important: You also need to get a local copy of the Base 42 library - see https://github.com/studio42gmbh/base42
+Important: If you use it as local project you also need to get a local copy of the [Base 42 library](https://github.com/studio42gmbh/base42) from github.
 
 
 ### Just use in your class
