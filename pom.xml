@@ -4,7 +4,7 @@
 	<description>Simple, secure and fast logging for Java. See https://github.com/studio42gmbh/log42</description>
 	<groupId>de.s42</groupId>
 	<artifactId>log42</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4-DEV</version>
 	<packaging>jar</packaging>
 	<modelVersion>4.0.0</modelVersion>
 	<properties>
@@ -16,7 +16,7 @@
 			<!-- https://github.com/studio42gmbh/base42 -->
 			<groupId>de.s42</groupId>
 			<artifactId>base42</artifactId>
-			<version>1.0.6</version>
+			<version>1.0.7-DEV</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>	
