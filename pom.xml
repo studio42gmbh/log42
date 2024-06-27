@@ -4,7 +4,7 @@
 	<description>Simple, secure and fast logging for Java. See https://github.com/studio42gmbh/log42</description>
 	<groupId>de.s42</groupId>
 	<artifactId>log42</artifactId>
-	<version>1.0.3-DEV</version>
+	<version>1.0.3</version>
 	<packaging>jar</packaging>
 	<modelVersion>4.0.0</modelVersion>
 	<properties>
@@ -16,7 +16,7 @@
 			<!-- https://github.com/studio42gmbh/base42 -->
 			<groupId>de.s42</groupId>
 			<artifactId>base42</artifactId>
-			<version>1.0.6-DEV</version>
+			<version>1.0.6</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>	
@@ -62,7 +62,7 @@
 				<!-- https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.2.5</version>
+				<version>3.3.0</version>
 				<configuration>
 					<!-- https://stackoverflow.com/questions/64688896/how-to-make-testng-print-detail-message-about-the-failure -->
 					<trimStackTrace>false</trimStackTrace> 
@@ -84,7 +84,7 @@
 				<!-- https://maven.apache.org/plugins/maven-dependency-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.6.1</version>
+				<version>3.7.0</version>
 				<executions>
 					<execution>
 						<id>copy-dependencies</id>
@@ -104,7 +104,7 @@
 				<!-- https://maven.apache.org/plugins/maven-jar-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.3.0</version>
+				<version>3.4.2</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -121,7 +121,7 @@
 				<!-- https://maven.apache.org/plugins/maven-javadoc-plugin/aggregate-mojo.html -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.6.3</version>
+				<version>3.7.0</version>
 				<configuration>
 					<outputDirectory>${project.basedir}/docs</outputDirectory>
 					<reportOutputDirectory>${project.basedir}/docs</reportOutputDirectory>
@@ -133,7 +133,7 @@
 				<!-- https://maven.apache.org/plugins/maven-install-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.1.2</version>
 			</plugin>
 		</plugins>
 	</build>
