@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"de.sft.log","l":"de.s42.log"},{"m":"de.sft.log","l":"de.s42.log.impl"}];updateSearchResults();
