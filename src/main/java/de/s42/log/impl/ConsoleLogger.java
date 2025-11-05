@@ -187,6 +187,11 @@ public class ConsoleLogger implements Logger, LoggerFactory
 	{
 		assert level != null;
 
+		// dont log lower levels than logLevel
+		if (logLevel.isLower(level)) {
+			return;
+		}
+
 		logThrowable(level, null, messages);
 	}
 
