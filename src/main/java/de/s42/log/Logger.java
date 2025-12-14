@@ -1,19 +1,19 @@
 // <editor-fold desc="The MIT License" defaultstate="collapsed">
 /*
  * The MIT License
- * 
+ *
  * Copyright 2021 Studio 42 GmbH (https://www.s42m.de).
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -32,137 +32,137 @@ package de.s42.log;
 public interface Logger
 {
 
-	public void start(String id);
+	void start(String id);
 
-	public double stop(LogLevel level, String id, int count);
+	double stop(LogLevel level, String id, int count);
 
-	public void log(LogLevel level, Object... messages);
+	void log(LogLevel level, Object... messages);
 
-	public void logThrowable(LogLevel level, Throwable ex, Object... messages);
+	void logThrowable(LogLevel level, Throwable ex, Object... messages);
 
-	public void ifLevel(LogLevel level, Runnable doOnLevel);
+	void ifLevel(LogLevel level, Runnable doOnLevel);
 
-	default public double stop(LogLevel level, String id)
+	default double stop(LogLevel level, String id)
 	{
 		return stop(level, id, 1);
 	}
 
-	default public double stopTrace(String id)
+	default double stopTrace(String id)
 	{
 		return stop(LogLevel.TRACE, id);
 	}
 
-	default public double stopDebug(String id)
+	default double stopDebug(String id)
 	{
 		return stop(LogLevel.DEBUG, id);
 	}
 
-	default public double stopInfo(String id)
+	default double stopInfo(String id)
 	{
 		return stop(LogLevel.INFO, id);
 	}
 
-	default public double stopWarn(String id)
+	default double stopWarn(String id)
 	{
 		return stop(LogLevel.WARN, id);
 	}
 
-	default public double stopError(String id)
+	default double stopError(String id)
 	{
 		return stop(LogLevel.ERROR, id);
 	}
 
-	default public double stopFatal(String id)
+	default double stopFatal(String id)
 	{
 		return stop(LogLevel.FATAL, id);
 	}
 
-	default public void trace(Object... messages)
+	default void trace(Object... messages)
 	{
 		log(LogLevel.TRACE, messages);
 	}
 
-	default public void debug(Object... messages)
+	default void debug(Object... messages)
 	{
 		log(LogLevel.DEBUG, messages);
 	}
 
-	default public void info(Object... messages)
+	default void info(Object... messages)
 	{
 		log(LogLevel.INFO, messages);
 	}
 
-	default public void warn(Object... messages)
+	default void warn(Object... messages)
 	{
 		log(LogLevel.WARN, messages);
 	}
 
-	default public void error(Object... messages)
+	default void error(Object... messages)
 	{
 		log(LogLevel.ERROR, messages);
 	}
 
-	default public void fatal(Object... messages)
+	default void fatal(Object... messages)
 	{
 		log(LogLevel.FATAL, messages);
 	}
 
-	default public void trace(Throwable ex, Object... messages)
+	default void trace(Throwable ex, Object... messages)
 	{
 		logThrowable(LogLevel.TRACE, ex, messages);
 	}
 
-	default public void debug(Throwable ex, Object... messages)
+	default void debug(Throwable ex, Object... messages)
 	{
 		logThrowable(LogLevel.DEBUG, ex, messages);
 	}
 
-	default public void info(Throwable ex, Object... messages)
+	default void info(Throwable ex, Object... messages)
 	{
 		logThrowable(LogLevel.INFO, ex, messages);
 	}
 
-	default public void warn(Throwable ex, Object... messages)
+	default void warn(Throwable ex, Object... messages)
 	{
 		logThrowable(LogLevel.WARN, ex, messages);
 	}
 
-	default public void error(Throwable ex, Object... messages)
+	default void error(Throwable ex, Object... messages)
 	{
 		logThrowable(LogLevel.ERROR, ex, messages);
 	}
 
-	default public void fatal(Throwable ex, Object... messages)
+	default void fatal(Throwable ex, Object... messages)
 	{
 		logThrowable(LogLevel.FATAL, ex, messages);
 	}
 
-	default public void ifTrace(Runnable doOnTrace)
+	default void ifTrace(Runnable doOnTrace)
 	{
 		ifLevel(LogLevel.TRACE, doOnTrace);
 	}
 
-	default public void ifDebug(Runnable doOnDebug)
+	default void ifDebug(Runnable doOnDebug)
 	{
 		ifLevel(LogLevel.DEBUG, doOnDebug);
 	}
 
-	default public void ifInfo(Runnable doOnInfo)
+	default void ifInfo(Runnable doOnInfo)
 	{
 		ifLevel(LogLevel.INFO, doOnInfo);
 	}
 
-	default public void ifWarn(Runnable doOnWarn)
+	default void ifWarn(Runnable doOnWarn)
 	{
 		ifLevel(LogLevel.WARN, doOnWarn);
 	}
 
-	default public void ifError(Runnable doOnError)
+	default void ifError(Runnable doOnError)
 	{
 		ifLevel(LogLevel.ERROR, doOnError);
 	}
 
-	default public void ifFatal(Runnable doOnFatal)
+	default void ifFatal(Runnable doOnFatal)
 	{
 		ifLevel(LogLevel.FATAL, doOnFatal);
 	}
