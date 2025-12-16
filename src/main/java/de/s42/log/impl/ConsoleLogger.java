@@ -278,9 +278,11 @@ public class ConsoleLogger implements Logger, LoggerFactory
 				case WARN ->
 					levelInfoColor = TerminalColor.Yellow;
 				case DEBUG ->
-					levelInfoColor = TerminalColor.Cyan;
-				case TRACE ->
+					levelInfoColor = TerminalColor.BrightCyan;
+				case INFO ->
 					levelInfoColor = TerminalColor.White;
+				case TRACE ->
+					levelInfoColor = TerminalColor.Cyan;
 				default -> {
 				}
 			}
