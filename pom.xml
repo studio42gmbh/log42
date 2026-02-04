@@ -2,24 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<name>Log 42</name>
 	<description>Simple, secure and fast logging for Java. See https://github.com/studio42gmbh/log42</description>
+	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.s42</groupId>
 	<artifactId>log42</artifactId>
-	<version>1.0.4-DEV</version>
+	<version>1.0.4</version>
 	<packaging>jar</packaging>
-	<modelVersion>4.0.0</modelVersion>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.release>17</maven.compiler.release>
+		<maven.compiler.release>21</maven.compiler.release>
 	</properties>
 	<dependencies>
 		<dependency>
 			<!-- https://github.com/studio42gmbh/base42 -->
 			<groupId>de.s42</groupId>
 			<artifactId>base42</artifactId>
-			<version>1.0.7-DEV</version>
+			<version>1.0.7</version>
 			<scope>compile</scope>
 		</dependency>
-	</dependencies>	
+	</dependencies>
 	<distributionManagement>
 		<repository>
 			<id>github</id>
@@ -33,7 +33,7 @@
 				<!-- https://maven.apache.org/plugins/maven-antrun-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
@@ -46,9 +46,9 @@
 									<arg value="--abbrev=11"/>
 									<arg value="HEAD"/>
 								</exec>
-								<property name="versionFile" value="${project.basedir}/src/main/resources/de/s42/log/${project.artifactId}.version"/>	
-								<property name="fullVersion" value="${project.version} #${git.revision} ${maven.build.timestamp}"/>								
-								<echo file="${versionFile}">${fullVersion}</echo>													
+								<property name="versionFile" value="${project.basedir}/src/main/resources/de/s42/log/${project.artifactId}.version"/>
+								<property name="fullVersion" value="${project.version} #${git.revision} ${maven.build.timestamp}"/>
+								<echo file="${versionFile}">${fullVersion}</echo>
 								<echo>New version is ${fullVersion}</echo>
 							</target>
 						</configuration>
@@ -57,7 +57,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>						
+			</plugin>
 			<plugin>
 				<!-- https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
 				<groupId>org.apache.maven.plugins</groupId>
@@ -65,16 +65,16 @@
 				<version>3.5.4</version>
 				<configuration>
 					<!-- https://stackoverflow.com/questions/64688896/how-to-make-testng-print-detail-message-about-the-failure -->
-					<trimStackTrace>false</trimStackTrace> 
+					<trimStackTrace>false</trimStackTrace>
 					<argLine>--add-modules de.sft.log -Dfile.encoding=UTF-8</argLine>
 					<workingDirectory>${project.basedir}/data/</workingDirectory>
 				</configuration>
-			</plugin>		
+			</plugin>
 			<plugin>
 				<!-- https://maven.apache.org/plugins/maven-compiler-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.0</version>
+				<version>3.14.1</version>
 				<configuration>
 					<showDeprecation>true</showDeprecation>
 					<debug>true</debug>
@@ -84,7 +84,7 @@
 				<!-- https://maven.apache.org/plugins/maven-dependency-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.9.0</version>
 				<executions>
 					<execution>
 						<id>copy-dependencies</id>
@@ -99,36 +99,36 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>			
+			</plugin>
 			<plugin>
 				<!-- https://maven.apache.org/plugins/maven-jar-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.4.2</version>
+				<version>3.5.0</version>
 				<configuration>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>libs/</classpathPrefix>						
+							<classpathPrefix>libs/</classpathPrefix>
 						</manifest>
 						<manifestEntries>
 							<Automatic-Module-Name>de.sft.log</Automatic-Module-Name>
 						</manifestEntries>
 					</archive>
 				</configuration>
-			</plugin>		
+			</plugin>
 			<plugin>
 				<!-- https://maven.apache.org/plugins/maven-javadoc-plugin/aggregate-mojo.html -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.11.3</version>
+				<version>3.12.0</version>
 				<configuration>
 					<outputDirectory>${project.basedir}/docs</outputDirectory>
 					<reportOutputDirectory>${project.basedir}/docs</reportOutputDirectory>
 					<destDir>javadoc</destDir>
 					<show>private</show>
-				</configuration>				
-			</plugin>			
+				</configuration>
+			</plugin>
 			<plugin>
 				<!-- https://maven.apache.org/plugins/maven-install-plugin/ -->
 				<groupId>org.apache.maven.plugins</groupId>
